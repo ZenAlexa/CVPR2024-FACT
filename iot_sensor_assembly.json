@@ -1,0 +1,275 @@
+{
+  "assembly_name": "IOT传感器(R0X000-4)装配",
+  "product_id": "IoTSensor-001",
+  "total_steps": 18,
+  "difficulty_level": "高级",
+  "estimated_time_minutes": 40,
+  "tools_required": ["精密十字螺丝刀", "防静电手环"],
+  "assembly_steps": [
+    {
+      "step_id": 1,
+      "step_name": "准备温湿度探测器信号线",
+      "action_label": "sensor_prepare_cable",
+      "components_used": ["I10"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取出温湿度探测器信号线，检查线缆两端接口是否完好，线缆外皮是否有损伤。",
+        "image_paths": ["images/sensor/step1_1.jpg", "images/sensor/step1_2.jpg"],
+        "video_path": "videos/sensor/step1.mp4",
+        "quality_check": "线缆无损伤，两端接口完好"
+      }
+    },
+    {
+      "step_id": 2,
+      "step_name": "将线缆锁紧螺帽和线缆接口固定座穿过信号线",
+      "action_label": "sensor_thread_components",
+      "components_used": ["I10", "I13", "I14"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "按照正确的顺序，先将线缆锁紧螺帽，再将线缆接口固定座穿过信号线。",
+        "image_paths": ["images/sensor/step2_1.jpg", "images/sensor/step2_2.jpg"],
+        "video_path": "videos/sensor/step2.mp4",
+        "quality_check": "组件应按正确顺序穿过线缆"
+      }
+    },
+    {
+      "step_id": 3,
+      "step_name": "将线缆锁紧螺帽与线缆接口固定座初步拧紧",
+      "action_label": "sensor_tighten_connector",
+      "components_used": ["I13", "I14"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "将线缆锁紧螺帽与线缆接口固定座对接，手动拧紧，但不要过紧，确保线缆仍能自由移动。",
+        "image_paths": ["images/sensor/step3_1.jpg", "images/sensor/step3_2.jpg"],
+        "video_path": "videos/sensor/step3.mp4",
+        "quality_check": "两部件应能稳固连接但不过紧"
+      }
+    },
+    {
+      "step_id": 4,
+      "step_name": "将信号线组件穿过上壳体预留接口",
+      "action_label": "sensor_insert_cable_assembly",
+      "components_used": ["I03", "I10", "I13", "I14"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取上壳体，将已准备好的信号线组件从内向外穿过上壳体的预留接口孔。",
+        "image_paths": ["images/sensor/step4_1.jpg", "images/sensor/step4_2.jpg"],
+        "video_path": "videos/sensor/step4.mp4",
+        "quality_check": "线缆接口固定座应能嵌入壳体接口位置"
+      }
+    },
+    {
+      "step_id": 5,
+      "step_name": "将线缆引导管安装并拧紧固定",
+      "action_label": "sensor_install_guide",
+      "components_used": ["I03", "I12"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "取线缆引导管，对准上壳体内的安装位置，使用精密十字螺丝刀拧紧固定。",
+        "image_paths": ["images/sensor/step5_1.jpg", "images/sensor/step5_2.jpg"],
+        "video_path": "videos/sensor/step5.mp4",
+        "quality_check": "线缆引导管应牢固固定在上壳体上"
+      }
+    },
+    {
+      "step_id": 6,
+      "step_name": "检查下壳体内部安装位置",
+      "action_label": "sensor_check_case",
+      "components_used": ["I04"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取下壳体，检查内部电路板安装位置是否清洁，定位柱是否完好。",
+        "image_paths": ["images/sensor/step6_1.jpg", "images/sensor/step6_2.jpg"],
+        "video_path": "videos/sensor/step6.mp4",
+        "quality_check": "安装面应清洁无杂物，定位柱完好"
+      }
+    },
+    {
+      "step_id": 7,
+      "step_name": "将MCU电路板放置在下壳体指定位置",
+      "action_label": "sensor_place_pcb",
+      "components_used": ["I01", "I04"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取MCU电路板，对准下壳体内的定位柱，轻轻放置，确保电路板平稳就位。",
+        "image_paths": ["images/sensor/step7_1.jpg", "images/sensor/step7_2.jpg"],
+        "video_path": "videos/sensor/step7.mp4",
+        "quality_check": "电路板应正确对齐固定孔"
+      }
+    },
+    {
+      "step_id": 8,
+      "step_name": "用微型自攻螺钉固定MCU电路板",
+      "action_label": "sensor_secure_pcb",
+      "components_used": ["I01", "I02", "I04"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "取微型自攻螺钉M2×6，对准电路板上的固定孔，用精密十字螺丝刀拧紧至适当扭矩(0.4-0.6N·m)。",
+        "image_paths": ["images/sensor/step8_1.jpg", "images/sensor/step8_2.jpg"],
+        "video_path": "videos/sensor/step8.mp4",
+        "quality_check": "螺钉应拧紧至适当扭矩(0.4-0.6N·m)，电路板牢固"
+      }
+    },
+    {
+      "step_id": 9,
+      "step_name": "将电源连接线缆穿过上壳体电源接口孔",
+      "action_label": "sensor_thread_power_cable",
+      "components_used": ["I03", "I09"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取电源连接线缆，从上壳体内向外穿过电源接口孔。",
+        "image_paths": ["images/sensor/step9_1.jpg", "images/sensor/step9_2.jpg"],
+        "video_path": "videos/sensor/step9.mp4",
+        "quality_check": "线缆应顺畅穿过，无阻碍"
+      }
+    },
+    {
+      "step_id": 10,
+      "step_name": "将电缆应力释放器穿入电源线缆并固定到壳体",
+      "action_label": "sensor_install_strain_relief",
+      "components_used": ["I03", "I09", "I11"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "取电缆应力释放器，穿入电源线缆，然后将其卡入上壳体上的固定槽，用精密十字螺丝刀拧紧固定。",
+        "image_paths": ["images/sensor/step10_1.jpg", "images/sensor/step10_2.jpg"],
+        "video_path": "videos/sensor/step10.mp4",
+        "quality_check": "应力释放器应紧固且不松动"
+      }
+    },
+    {
+      "step_id": 11,
+      "step_name": "将温湿度探测器信号线连接至MCU电路板JST-XH接口",
+      "action_label": "sensor_connect_signal_cable",
+      "components_used": ["I01", "I10"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "将温湿度探测器信号线的JST-XH接口对准MCU电路板上的对应接口，轻推直到卡扣锁定。",
+        "image_paths": ["images/sensor/step11_1.jpg", "images/sensor/step11_2.jpg"],
+        "video_path": "videos/sensor/step11.mp4",
+        "quality_check": "连接应完全插入，卡扣锁定"
+      }
+    },
+    {
+      "step_id": 12,
+      "step_name": "将电源线缆连接至MCU电路板DC接口",
+      "action_label": "sensor_connect_power_cable",
+      "components_used": ["I01", "I09"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "将电源线缆的DC接口对准MCU电路板上的电源接口，插入直到完全就位。",
+        "image_paths": ["images/sensor/step12_1.jpg", "images/sensor/step12_2.jpg"],
+        "video_path": "videos/sensor/step12.mp4",
+        "quality_check": "电源接口应完全插入，连接牢固"
+      }
+    },
+    {
+      "step_id": 13,
+      "step_name": "检查所有内部连接",
+      "action_label": "sensor_check_connections",
+      "components_used": ["I01", "I09", "I10"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "检查所有电缆连接是否牢固，线缆走向是否合理，确保没有线缆被挤压或过度弯曲。",
+        "image_paths": ["images/sensor/step13_1.jpg", "images/sensor/step13_2.jpg"],
+        "video_path": "videos/sensor/step13.mp4",
+        "quality_check": "所有连接应完好，走线合理无干涉"
+      }
+    },
+    {
+      "step_id": 14,
+      "step_name": "对齐上下壳体",
+      "action_label": "sensor_align_case",
+      "components_used": ["I03", "I04"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "拿起上壳体，对准下壳体，确保边缘完全对齐，预留接口与内部组件位置匹配。",
+        "image_paths": ["images/sensor/step14_1.jpg", "images/sensor/step14_2.jpg"],
+        "video_path": "videos/sensor/step14.mp4",
+        "quality_check": "壳体边缘应完全对齐，无偏移"
+      }
+    },
+    {
+      "step_id": 15,
+      "step_name": "安装并初步拧紧第一个壳体固定螺钉",
+      "action_label": "sensor_install_first_screw",
+      "components_used": ["I03", "I04", "I05"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "取第一个壳体固定螺钉M4×10，对准上壳体的第一个螺孔，用精密十字螺丝刀初步拧紧。",
+        "image_paths": ["images/sensor/step15_1.jpg", "images/sensor/step15_2.jpg"],
+        "video_path": "videos/sensor/step15.mp4",
+        "quality_check": "螺钉应能正确穿过上壳体并进入下壳体螺柱"
+      }
+    },
+    {
+      "step_id": 16,
+      "step_name": "按对角顺序依次安装其余三个壳体固定螺钉",
+      "action_label": "sensor_install_remaining_screws",
+      "components_used": ["I03", "I04", "I06", "I07", "I08"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "按照对角线顺序，依次取剩余的三个壳体固定螺钉M4×10，安装并初步拧紧。",
+        "image_paths": ["images/sensor/step16_1.jpg", "images/sensor/step16_2.jpg"],
+        "video_path": "videos/sensor/step16.mp4",
+        "quality_check": "所有螺钉应初步拧紧"
+      }
+    },
+    {
+      "step_id": 17,
+      "step_name": "按对角顺序最终紧固所有壳体固定螺钉",
+      "action_label": "sensor_final_tighten_screws",
+      "components_used": ["I05", "I06", "I07", "I08"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "按照对角线顺序，依次使用精密十字螺丝刀最终紧固所有四个壳体固定螺钉，达到规定扭矩(1.0-1.2N·m)。",
+        "image_paths": ["images/sensor/step17_1.jpg", "images/sensor/step17_2.jpg"],
+        "video_path": "videos/sensor/step17.mp4",
+        "quality_check": "螺钉应紧固至适当扭矩(1.0-1.2N·m)，外壳无缝隙"
+      }
+    },
+    {
+      "step_id": 18,
+      "step_name": "功能测试检查",
+      "action_label": "sensor_test_function",
+      "components_used": [],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "连接电源，检查LED指示灯是否正常工作，传感器数据是否能够正常读取。",
+        "image_paths": ["images/sensor/step18_1.jpg", "images/sensor/step18_2.jpg"],
+        "video_path": "videos/sensor/step18.mp4",
+        "quality_check": "接通电源后LED指示灯应正常工作，传感器数据正常"
+      }
+    }
+  ],
+  "quality_control_points": [
+    "检查所有电缆外皮完整性，无破损",
+    "确认MCU电路板无明显焊接缺陷或元件损伤",
+    "壳体各部分无裂纹或变形",
+    "线缆固定组件安装时注意方向和顺序",
+    "拧紧微型自攻螺钉时应避免过度用力导致塑料螺柱开裂",
+    "连接器插拔时应垂直用力，避免接口损坏",
+    "外壳组装完成后无明显间隙",
+    "接通电源后设备指示灯正常工作",
+    "传感器功能正常，数据读取准确"
+  ],
+  "assembly_environment_requirements": [
+    "防静电工作台面",
+    "环境应洁净无尘",
+    "湿度控制在30%-70%RH范围内，避免静电损坏电子元件"
+  ],
+  "technical_specifications": {
+    "interfaces": {
+      "sensor": "JST-XH 2.54mm间距4针接口",
+      "power": "标准DC 5.5*2.1mm接口"
+    },
+    "protection_rating": "IP65（防尘防水）",
+    "expected_lifetime": "在标准工作条件下，预期使用寿命不低于5年",
+    "cable_durability": "线缆弯曲次数不应超过5000次"
+  },
+  "notes": [
+    "处理电路板时应佩戴防静电手环，避免静电损坏电子元件",
+    "线缆锁紧部件拧紧时应避免过度用力，防止线缆绝缘层损坏",
+    "螺钉拧紧顺序应遵循对角原则，确保壳体均匀受力",
+    "功能测试时应在额定工作电压范围内进行，避免过压损坏"
+  ]
+} 

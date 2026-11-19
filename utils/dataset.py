@@ -3,9 +3,9 @@
 import numpy as np
 import os
 import torch
-from ..home import get_project_base
+from home import get_project_base
 from yacs.config import CfgNode
-from .utils import shrink_frame_label
+from utils.utils import shrink_frame_label
 
 BASE = get_project_base()
 
@@ -181,6 +181,16 @@ def create_dataset(cfg: CfgNode):
             average_transcript_len = 165
         else:
             average_transcript_len = 52
+    
+    elif cfg.dataset == "assembly":
+        map_fname = BASE + 'data/assembly/mapping.txt'
+        dataset_path = BASE + 'data/assembly/'
+        feature_path = BASE + 'data/assembly/features/'
+        train_split_fname = BASE + f'data/assembly/splits/train.{cfg.split}.bundle'
+        test_split_fname = BASE + f'data/assembly/splits/test.{cfg.split}.bundle'
+        feature_transpose = False  # 特征已按T x D格式提取
+        average_transcript_len = 15.0  # 预估平均动作序列长度
+        bg_class = [0]  # SIL类别索引
     
     groundTruth_path = os.path.join(dataset_path, 'groundTruth')
 

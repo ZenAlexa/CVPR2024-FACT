@@ -1,8 +1,8 @@
 import os
 import sys
-from ..home import get_project_base
-from .evaluate import Video, Checkpoint
-from .utils import to_numpy
+from home import get_project_base
+from utils.evaluate import Video, Checkpoint
+from utils.utils import to_numpy
 BASE = get_project_base()
 
 def already_finished(logdir):

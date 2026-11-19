@@ -1,0 +1,214 @@
+{
+  "assembly_name": "轴承座(BearingHousing)装配",
+  "product_id": "BearingHousing-001",
+  "total_steps": 14,
+  "difficulty_level": "初级",
+  "estimated_time_minutes": 25,
+  "tools_required": ["扳手"],
+  "assembly_steps": [
+    {
+      "step_id": 1,
+      "step_name": "准备轴承座并检查内孔",
+      "action_label": "bearing_prepare_housing",
+      "components_used": ["B01"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "将轴承座放置在工作台上，检查内孔是否有杂质，确保表面无损伤。",
+        "image_paths": ["images/bearing/step1_1.jpg", "images/bearing/step1_2.jpg"],
+        "video_path": "videos/bearing/step1.mp4",
+        "quality_check": "轴承座内孔无杂质，表面无损伤"
+      }
+    },
+    {
+      "step_id": 2,
+      "step_name": "将下轴衬安装入轴承座",
+      "action_label": "bearing_install_lower_bushing",
+      "components_used": ["B01", "B02"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取下轴衬，对准轴承座内孔，轻轻推入直到完全就位。",
+        "image_paths": ["images/bearing/step2_1.jpg", "images/bearing/step2_2.jpg"],
+        "video_path": "videos/bearing/step2.mp4",
+        "quality_check": "下轴衬应完全就位，与轴承座内壁吻合"
+      }
+    },
+    {
+      "step_id": 3,
+      "step_name": "将上轴衬与下轴衬对齐安装",
+      "action_label": "bearing_install_upper_bushing",
+      "components_used": ["B01", "B02", "B03"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取上轴衬，对准已安装的下轴衬，确保两者同轴，轻轻推入直到就位。",
+        "image_paths": ["images/bearing/step3_1.jpg", "images/bearing/step3_2.jpg"],
+        "video_path": "videos/bearing/step3.mp4",
+        "quality_check": "上轴衬应与下轴衬同轴对齐，无偏移"
+      }
+    },
+    {
+      "step_id": 4,
+      "step_name": "将轴承盖放置到轴承座顶部",
+      "action_label": "bearing_place_cap",
+      "components_used": ["B01", "B04"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取轴承盖，对准轴承座顶部的安装面，放置并确保螺孔对齐。",
+        "image_paths": ["images/bearing/step4_1.jpg", "images/bearing/step4_2.jpg"],
+        "video_path": "videos/bearing/step4.mp4",
+        "quality_check": "轴承盖应与轴承座安装面完全贴合，螺孔对齐"
+      }
+    },
+    {
+      "step_id": 5,
+      "step_name": "将油杯B12拧入轴承盖指定位置",
+      "action_label": "bearing_install_oilcup",
+      "components_used": ["B04", "B05"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取油杯B12，对准轴承盖上的油杯孔，手动拧入直到适当紧固。",
+        "image_paths": ["images/bearing/step5_1.jpg", "images/bearing/step5_2.jpg"],
+        "video_path": "videos/bearing/step5.mp4",
+        "quality_check": "油杯应拧紧但不过紧，确保密封良好"
+      }
+    },
+    {
+      "step_id": 6,
+      "step_name": "将组件整体翻转，手部固定防止零件松动",
+      "action_label": "bearing_flip_assembly",
+      "components_used": ["B01", "B02", "B03", "B04", "B05"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "用双手小心握住组件，将其翻转180度，确保所有零件保持原位不脱落。",
+        "image_paths": ["images/bearing/step6_1.jpg", "images/bearing/step6_2.jpg"],
+        "video_path": "videos/bearing/step6.mp4",
+        "quality_check": "组件应保持完整，零件不脱落"
+      }
+    },
+    {
+      "step_id": 7,
+      "step_name": "插入第一个M12X130螺栓",
+      "action_label": "bearing_insert_bolt1",
+      "components_used": ["B06"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取第一个螺栓M12X130，从翻转后的底部穿过轴承座和轴承盖的第一个对应螺孔。",
+        "image_paths": ["images/bearing/step7_1.jpg", "images/bearing/step7_2.jpg"],
+        "video_path": "videos/bearing/step7.mp4",
+        "quality_check": "螺栓应穿过轴承盖、轴承座的对应螺孔"
+      }
+    },
+    {
+      "step_id": 8,
+      "step_name": "插入第二个M12X130螺栓",
+      "action_label": "bearing_insert_bolt2",
+      "components_used": ["B07"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取第二个螺栓M12X130，从翻转后的底部穿过轴承座和轴承盖的第二个对应螺孔。",
+        "image_paths": ["images/bearing/step8_1.jpg", "images/bearing/step8_2.jpg"],
+        "video_path": "videos/bearing/step8.mp4",
+        "quality_check": "螺栓应穿过轴承盖、轴承座的对应螺孔"
+      }
+    },
+    {
+      "step_id": 9,
+      "step_name": "将组件再次整体翻转回原位",
+      "action_label": "bearing_flip_back",
+      "components_used": ["B01", "B02", "B03", "B04", "B05", "B06", "B07"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "小心翻转组件回到原来的方向，确保螺栓不脱落。",
+        "image_paths": ["images/bearing/step9_1.jpg", "images/bearing/step9_2.jpg"],
+        "video_path": "videos/bearing/step9.mp4",
+        "quality_check": "组件保持完整，螺栓不脱落"
+      }
+    },
+    {
+      "step_id": 10,
+      "step_name": "用手初步拧紧第一个M12螺母",
+      "action_label": "bearing_hand_tighten_nut1",
+      "components_used": ["B06", "B08"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取第一个M12螺母，套在第一个螺栓的螺纹端，用手拧紧。",
+        "image_paths": ["images/bearing/step10_1.jpg", "images/bearing/step10_2.jpg"],
+        "video_path": "videos/bearing/step10.mp4",
+        "quality_check": "螺母应能与螺栓正确啮合"
+      }
+    },
+    {
+      "step_id": 11,
+      "step_name": "用手初步拧紧第二个M12螺母",
+      "action_label": "bearing_hand_tighten_nut2",
+      "components_used": ["B07", "B09"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取第二个M12螺母，套在第二个螺栓的螺纹端，用手拧紧。",
+        "image_paths": ["images/bearing/step11_1.jpg", "images/bearing/step11_2.jpg"],
+        "video_path": "videos/bearing/step11.mp4",
+        "quality_check": "螺母应能与螺栓正确啮合"
+      }
+    },
+    {
+      "step_id": 12,
+      "step_name": "用扳手最终紧固第一个M12螺母",
+      "action_label": "bearing_wrench_tighten_nut1",
+      "components_used": ["B08"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "使用扳手，将第一个M12螺母紧固至规定扭矩(80-100N·m)。",
+        "image_paths": ["images/bearing/step12_1.jpg", "images/bearing/step12_2.jpg"],
+        "video_path": "videos/bearing/step12.mp4",
+        "quality_check": "螺母应紧固至规定扭矩，确保连接牢固"
+      }
+    },
+    {
+      "step_id": 13,
+      "step_name": "用扳手最终紧固第二个M12螺母",
+      "action_label": "bearing_wrench_tighten_nut2",
+      "components_used": ["B09"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "使用扳手，将第二个M12螺母紧固至规定扭矩(80-100N·m)。",
+        "image_paths": ["images/bearing/step13_1.jpg", "images/bearing/step13_2.jpg"],
+        "video_path": "videos/bearing/step13.mp4",
+        "quality_check": "螺母应紧固至规定扭矩，确保连接牢固"
+      }
+    },
+    {
+      "step_id": 14,
+      "step_name": "检查整体组装质量",
+      "action_label": "bearing_check_quality",
+      "components_used": ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "检查整个轴承座组件，确认结构稳固，轴衬能够在轴承座内自由旋转。",
+        "image_paths": ["images/bearing/step14_1.jpg", "images/bearing/step14_2.jpg"],
+        "video_path": "videos/bearing/step14.mp4",
+        "quality_check": "结构应稳固，轴衬应能在轴承座内自由旋转，无卡滞"
+      }
+    }
+  ],
+  "quality_control_points": [
+    "检查所有零件表面无划痕、无变形",
+    "确认螺栓、螺母螺纹完好无损",
+    "检查轴衬表面光滑度符合工艺要求",
+    "确保轴衬安装时轴向正确",
+    "轴承盖与轴承座之间不应有间隙",
+    "拧紧螺母时应采用交叉顺序，确保均匀受力",
+    "螺母紧固扭矩应符合M12标准（通常为80-100N·m）",
+    "轴衬在装配完成后应能自由旋转",
+    "油杯安装位置应无泄漏风险"
+  ],
+  "assembly_environment_requirements": [
+    "工作台面应平整稳固",
+    "环境应洁净无尘",
+    "光线充足，便于观察装配细节"
+  ],
+  "notes": [
+    "在安装轴衬过程中，应避免使用过大力量冲击，防止变形",
+    "拧紧螺母时应遵循先均匀初紧，再按规定扭矩最终紧固的原则",
+    "整体翻转过程中必须用手固定所有零件，防止松动或掉落",
+    "如发现任何零件存在缺陷，应立即更换，不得勉强装配"
+  ]
+} 

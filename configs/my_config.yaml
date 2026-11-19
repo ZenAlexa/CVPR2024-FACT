@@ -1,0 +1,84 @@
+BU:
+  a: sa
+  a_dim: null
+  a_ffdim: null
+  a_layers: 1
+  a_nhead: 8
+  dropout: null
+  f: null
+  f_dim: null
+  f_layers: 10
+  f_ln: null
+  f_ngp: null
+  hid_dim: null
+  s_layers: 1
+Bi:
+  a: sca
+  a_dim: 512
+  a_ffdim: 2048
+  a_layers: 6
+  a_nhead: 8
+  dropout: 0.5
+  f: cnn
+  f_dim: 512
+  f_layers: 10
+  f_ln: false
+  f_ngp: 4
+  hid_dim: 512
+Bu:
+  a: sa
+  a_dim: null
+  a_ffdim: null
+  a_layers: 1
+  a_nhead: null
+  dropout: null
+  f: null
+  f_dim: null
+  f_layers: 5
+  f_ln: null
+  f_ngp: null
+  hid_dim: null
+FACT:
+  block: iuUU
+  cmr: 0.3
+  fpos: true
+  mwt: 0.1
+  ntoken: 30
+  trans: false
+Loss:
+  a2fc: 1.0
+  bgw: 1.0
+  match: o2o
+  nullw: -1.0
+  pc: 1.0
+  sw: 0.0
+TM:
+  inplace: true
+  m: 5
+  p: 0.05
+  t: 30
+  use: false
+aux:
+  debug: false
+  eval_every: 1000
+  gpu: 0
+  logdir: log/breakfast\split1\0
+  mark: ""
+  print_every: 200
+  resume: max
+  runid: 0
+  wandb_offline: false
+  wandb_project: FACT
+  wandb_user: ""
+batch_size: 4
+clip_grad_norm: 10.0
+dataset: breakfast
+epoch: 2
+eval_bg: false
+lr: 0.1
+lr_decay: -1
+momentum: 0.009
+optimizer: SGD
+split: split1
+sr: 1
+weight_decay: 0.0 

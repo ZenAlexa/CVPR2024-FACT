@@ -2,7 +2,7 @@ import numpy as np
 from collections import OrderedDict
 import pickle
 import gzip
-from .utils import expand_frame_label, parse_label, easy_reduce
+from utils.utils import expand_frame_label, parse_label, easy_reduce
 
 def levenstein(p, y, norm=False):
     m_row = len(p)    

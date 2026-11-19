@@ -1,12 +1,12 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from . import basic as basic
-from ..utils import utils
-from ..configs.utils import update_from
-from . import loss
-from .loss import MatchCriterion
-from .basic import torch_class_label_to_segment_label, time_mask
+from models import basic as basic
+from utils import utils
+from configs.utils import update_from
+from models import loss
+from models.loss import MatchCriterion
+from models.basic import torch_class_label_to_segment_label, time_mask
 
 _VIDS = None
 _NIDS = None
@@ -151,7 +151,7 @@ def init_VIDS_NIDS():
     """
     global _VIDS, _NIDS
     if (_VIDS is None) or (_NIDS is None):
-        from ..utils.dataset import load_action_mapping
+        from utils.dataset import load_action_mapping
 
         v2i, i2v = load_action_mapping('./data/epic-kitchens/processed/verb_mapping.txt')
         n2i, i2n = load_action_mapping('./data/epic-kitchens/processed/noun_mapping.txt')

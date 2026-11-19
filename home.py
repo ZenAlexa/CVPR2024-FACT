@@ -1,9 +1,8 @@
 import os
 
 def get_project_base():
-    src_dir = os.path.dirname(os.path.realpath(__file__))
-    base = os.path.dirname(src_dir) + "/"
-    return base
+    # 直接返回当前目录作为项目基础路径
+    return os.path.dirname(os.path.realpath(__file__)) + "/"
 
 
 if __name__ == "__main__":

@@ -1,18 +1,18 @@
 import torch
 from tqdm import tqdm
-from .configs.utils import get_cfg_defaults
-from .utils.dataset import create_dataset, DataLoader
-from .utils import utils
-from .utils.evaluate import Checkpoint, Video
-from .utils.train_tools import save_results
+from configs.utils import get_cfg_defaults
+from utils.dataset import create_dataset, DataLoader
+from utils import utils
+from utils.evaluate import Checkpoint, Video
+from utils.train_tools import save_results
 
 
 for dataset_name, n_splits in [
-        ['gtea', 4], ['breakfast', 4], ['egoprocel', 1], ['epic-kitchens', 1]
+        ['breakfast', 4]  # 只评估breakfast数据集
     ]:
     print(dataset_name)
     cfg = get_cfg_defaults()
-    cfg.merge_from_file(f'./src/configs/{dataset_name}.yaml')
+    cfg.merge_from_file(f'./configs/{dataset_name}.yaml')
 
     ckpts = []
     for split in range(1, n_splits+1):
@@ -20,10 +20,10 @@ for dataset_name, n_splits in [
         dataset, test_dataset = create_dataset(cfg)
 
         if dataset_name == 'epic-kitchens':
-            from .models.blocks_SepVerbNoun import FACT
+            from models.blocks_SepVerbNoun import FACT
             model = FACT(cfg, dataset.input_dimension)
         else:
-            from .models.blocks import FACT 
+            from models.blocks import FACT 
             model = FACT(cfg, dataset.input_dimension, dataset.nclasses)
         weights = f'./ckpts/{dataset_name}/split{split}-weight.pth'
         weights = torch.load(weights, map_location='cpu')

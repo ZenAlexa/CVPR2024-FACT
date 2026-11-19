@@ -1,8 +1,8 @@
 import torch
 import torch.nn.functional as F
 from scipy.optimize import linear_sum_assignment
-from . import basic as basic
-from ..utils import utils
+from models import basic as basic
+from utils import utils
 import numpy as np
 
 def smooth_loss(logit, is_logit=True):

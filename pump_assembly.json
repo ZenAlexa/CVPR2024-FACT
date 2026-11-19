@@ -1,0 +1,253 @@
+{
+  "assembly_name": "泵(Pump)装配",
+  "product_id": "Pump-001",
+  "total_steps": 17,
+  "difficulty_level": "中级",
+  "estimated_time_minutes": 30,
+  "tools_required": ["扳手", "螺丝刀"],
+  "assembly_steps": [
+    {
+      "step_id": 1,
+      "step_name": "准备泵体并检查内腔",
+      "action_label": "pump_prepare_body",
+      "components_used": ["P01"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "将泵体放置在工作台上,检查内腔是否有杂质,确保表面无损伤。",
+        "image_paths": ["images/pump/step1_1.jpg", "images/pump/step1_2.jpg"],
+        "video_path": "videos/pump/step1.mp4",
+        "quality_check": "泵体内腔无杂质,表面无损伤"
+      }
+    },
+    {
+      "step_id": 2,
+      "step_name": "将传动齿轮轴插入泵体",
+      "action_label": "pump_insert_drive_shaft",
+      "components_used": ["P01", "P04"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取传动齿轮轴,对准泵体内的轴孔,垂直轻轻插入。",
+        "image_paths": ["images/pump/step2_1.jpg", "images/pump/step2_2.jpg"],
+        "video_path": "videos/pump/step2.mp4",
+        "quality_check": "传动齿轮轴应能在泵体中自由旋转,无卡滞"
+      }
+    },
+    {
+      "step_id": 3,
+      "step_name": "将齿轮轴插入泵体",
+      "action_label": "pump_insert_gear_shaft",
+      "components_used": ["P01", "P03"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取齿轮轴,对准泵体内的另一个轴孔,垂直插入,确保与传动齿轮轴正确啮合。",
+        "image_paths": ["images/pump/step3_1.jpg", "images/pump/step3_2.jpg"],
+        "video_path": "videos/pump/step3.mp4",
+        "quality_check": "齿轮轴应能在泵体中自由旋转,与传动齿轮轴正确啮合"
+      }
+    },
+    {
+      "step_id": 4,
+      "step_name": "在传动齿轮轴上安装键",
+      "action_label": "pump_install_key",
+      "components_used": ["P04", "P06"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取键(4x10),对准传动齿轮轴上的键槽,轻轻推入直到完全就位。",
+        "image_paths": ["images/pump/step4_1.jpg", "images/pump/step4_2.jpg"],
+        "video_path": "videos/pump/step4.mp4",
+        "quality_check": "键应与传动齿轮轴槽口完全对齐并就位"
+      }
+    },
+    {
+      "step_id": 5,
+      "step_name": "在传动齿轮轴上安装套筒",
+      "action_label": "pump_install_sleeve",
+      "components_used": ["P04", "P07"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取套筒,套在传动齿轮轴上,推到轴肩位置。",
+        "image_paths": ["images/pump/step5_1.jpg", "images/pump/step5_2.jpg"],
+        "video_path": "videos/pump/step5.mp4",
+        "quality_check": "套筒应平整贴合在轴肩上,无松动"
+      }
+    },
+    {
+      "step_id": 6,
+      "step_name": "将传动齿轮安装在传动齿轮轴上",
+      "action_label": "pump_install_drive_gear",
+      "components_used": ["P04", "P05"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取传动齿轮,对准传动齿轮轴上的键,旋转嵌入直到完全就位。",
+        "image_paths": ["images/pump/step6_1.jpg", "images/pump/step6_2.jpg"],
+        "video_path": "videos/pump/step6.mp4",
+        "quality_check": "传动齿轮应与键对齐并完全就位,能够啮合齿轮轴"
+      }
+    },
+    {
+      "step_id": 7,
+      "step_name": "安装垫片",
+      "action_label": "pump_install_washer",
+      "components_used": ["P04", "P08"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取垫片,套在传动齿轮轴上,放置在传动齿轮外侧。",
+        "image_paths": ["images/pump/step7_1.jpg", "images/pump/step7_2.jpg"],
+        "video_path": "videos/pump/step7.mp4",
+        "quality_check": "垫片应平整贴合在传动齿轮外侧,无变形"
+      }
+    },
+    {
+      "step_id": 8,
+      "step_name": "安装并紧固M12六角螺母",
+      "action_label": "pump_tighten_nut",
+      "components_used": ["P04", "P09"],
+      "tools_used": ["T01"],
+      "guidance_content": {
+        "text": "取M12六角螺母,套在传动齿轮轴上,手动拧紧后用扳手紧固至规定扭矩(40-50N·m)。",
+        "image_paths": ["images/pump/step8_1.jpg", "images/pump/step8_2.jpg"],
+        "video_path": "videos/pump/step8.mp4",
+        "quality_check": "螺母应紧固至规定扭矩(40-50N·m),齿轮系统能够自由转动"
+      }
+    },
+    {
+      "step_id": 9,
+      "step_name": "对齐右端盖与泵体",
+      "action_label": "pump_align_cover",
+      "components_used": ["P01", "P02"],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "取右端盖,对准泵体上的安装位置,使螺孔对齐。",
+        "image_paths": ["images/pump/step9_1.jpg", "images/pump/step9_2.jpg"],
+        "video_path": "videos/pump/step9.mp4",
+        "quality_check": "端盖螺孔应与泵体螺孔完全对齐,密封面贴合良好"
+      }
+    },
+    {
+      "step_id": 10,
+      "step_name": "安装第1个M6螺钉",
+      "action_label": "pump_install_screw1",
+      "components_used": ["P10"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第1个M6螺钉,放入右端盖上的第一个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_1_1.jpg", "images/pump/step10_1_2.jpg"],
+        "video_path": "videos/pump/step10_1.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 11,
+      "step_name": "安装第2个M6螺钉",
+      "action_label": "pump_install_screw2",
+      "components_used": ["P11"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第2个M6螺钉,放入右端盖上的第二个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_2_1.jpg", "images/pump/step10_2_2.jpg"],
+        "video_path": "videos/pump/step10_2.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 12,
+      "step_name": "安装第3个M6螺钉",
+      "action_label": "pump_install_screw3",
+      "components_used": ["P12"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第3个M6螺钉,放入右端盖上的第三个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_3_1.jpg", "images/pump/step10_3_2.jpg"],
+        "video_path": "videos/pump/step10_3.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 13,
+      "step_name": "安装第4个M6螺钉",
+      "action_label": "pump_install_screw4",
+      "components_used": ["P13"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第4个M6螺钉,放入右端盖上的第四个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_4_1.jpg", "images/pump/step10_4_2.jpg"],
+        "video_path": "videos/pump/step10_4.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 14,
+      "step_name": "安装第5个M6螺钉",
+      "action_label": "pump_install_screw5",
+      "components_used": ["P14"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第5个M6螺钉,放入右端盖上的第五个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_5_1.jpg", "images/pump/step10_5_2.jpg"],
+        "video_path": "videos/pump/step10_5.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 15,
+      "step_name": "安装第6个M6螺钉",
+      "action_label": "pump_install_screw6",
+      "components_used": ["P15"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "取第6个M6螺钉,放入右端盖上的第六个螺孔,用螺丝刀初步拧紧。",
+        "image_paths": ["images/pump/step10_6_1.jpg", "images/pump/step10_6_2.jpg"],
+        "video_path": "videos/pump/step10_6.mp4",
+        "quality_check": "螺钉初步拧紧,不完全锁死"
+      }
+    },
+    {
+      "step_id": 16,
+      "step_name": "按对角线顺序最终紧固所有螺钉",
+      "action_label": "pump_tighten_all_screws",
+      "components_used": ["P10", "P11", "P12", "P13", "P14", "P15"],
+      "tools_used": ["T02"],
+      "guidance_content": {
+        "text": "按照对角线顺序,依次使用螺丝刀最终紧固所有六个M6螺钉,达到规定扭矩(8-10N·m)。",
+        "image_paths": ["images/pump/step11_1.jpg", "images/pump/step11_2.jpg"],
+        "video_path": "videos/pump/step11.mp4",
+        "quality_check": "所有螺钉均匀紧固(8-10N·m),端盖与泵体无间隙"
+      }
+    },
+    {
+      "step_id": 17,
+      "step_name": "功能测试：手动旋转齿轮检查",
+      "action_label": "pump_test_rotation",
+      "components_used": [],
+      "tools_used": [],
+      "guidance_content": {
+        "text": "用手旋转传动齿轮轴,检查齿轮系统是否能顺畅运转无卡滞,传动是否平稳。",
+        "image_paths": ["images/pump/step12_1.jpg", "images/pump/step12_2.jpg"],
+        "video_path": "videos/pump/step12.mp4",
+        "quality_check": "齿轮系统应能顺畅运转无卡滞,传动平稳"
+      }
+    }
+  ],
+  "quality_control_points": [
+    "检查泵体内腔清洁度和各零件表面完整性",
+    "确认传动齿轮轴和齿轮轴表面无划痕",
+    "核实所有螺纹零件螺纹完好无损",
+    "安装键时需确保方向正确且完全就位",
+    "传动齿轮安装时应与键槽完全对齐",
+    "紧固M12螺母时应确保传动系统仍能自由转动",
+    "整机旋转无异响",
+    "端盖与泵体结合面密封良好",
+    "所有螺钉紧固扭矩符合规定值"
+  ],
+  "assembly_environment_requirements": [
+    "工作台面应平整稳固",
+    "环境应洁净无尘",
+    "光线充足,便于观察细微零件"
+  ],
+  "notes": [
+    "安装传动齿轮时,确保齿轮与齿轮轴正确啮合,啮合区域无异物",
+    "M12螺母紧固时应避免过度拧紧,防止传动系统卡滞",
+    "紧固端盖螺钉时应采用对角交叉顺序,确保均匀受力",
+    "最终功能测试时应检查传动系统的旋转阻力和平稳性"
+  ]
+} 

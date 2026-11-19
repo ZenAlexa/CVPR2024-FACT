@@ -1,5 +1,5 @@
 from yacs.config import CfgNode
-from .default import get_cfg_defaults
+from configs.default import get_cfg_defaults
 import os
 
 def _cfg2flatdict_helper(cfg: CfgNode) -> dict:

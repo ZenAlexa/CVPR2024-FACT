@@ -1,12 +1,12 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from . import basic as basic
-from ..utils import utils
-from ..configs.utils import update_from
-from . import loss
-from .loss import MatchCriterion
-from .basic import torch_class_label_to_segment_label, time_mask
+from models import basic as basic
+from utils import utils
+from configs.utils import update_from
+from models import loss
+from models.loss import MatchCriterion
+from models.basic import torch_class_label_to_segment_label, time_mask
 
 class FACT(nn.Module):
 
@@ -161,6 +161,11 @@ class Block(nn.Module):
             frame_branch = basic.MSTCN(in_dim, cfg.f_dim, cfg.hid_dim, cfg.f_layers, 
                                 dropout=cfg.dropout, ln=cfg.f_ln, ngroup=cfg.f_ngp, in_map=f_inmap)
         elif cfg.f == 'm2': # use MSTCN++
+            frame_branch = basic.MSTCN2(in_dim, cfg.f_dim, cfg.hid_dim, cfg.f_layers, 
+                                dropout=cfg.dropout, ln=cfg.f_ln, ngroup=cfg.f_ngp, in_map=f_inmap)
+        else:
+            # 如果cfg.f不是'm'或'm2'，使用默认的MSTCN++
+            print(f"Warning: Unknown frame branch type '{cfg.f}', using default MSTCN++")
             frame_branch = basic.MSTCN2(in_dim, cfg.f_dim, cfg.hid_dim, cfg.f_layers, 
                                 dropout=cfg.dropout, ln=cfg.f_ln, ngroup=cfg.f_ngp, in_map=f_inmap)
 

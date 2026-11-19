@@ -1,43 +1,41 @@
-#!/usr/bin/python3
-
 import numpy as np
 import argparse
 import os
 import json
 from torch import optim
 import torch
-import wandb
+from torch.utils.tensorboard import SummaryWriter
+import datetime
 
-from .utils.dataset import DataLoader, create_dataset
-from .utils.evaluate import Checkpoint
-from .home import get_project_base
-from .configs.utils import cfg2flatdict, setup_cfg
-from .utils.train_tools import resume_ckpt, compute_null_weight, save_results
-from .models.loss import MatchCriterion
+from utils.dataset import DataLoader, create_dataset
+from utils.evaluate import Checkpoint
+from home import get_project_base
+from configs.utils import cfg2flatdict, setup_cfg
+from utils.train_tools import resume_ckpt, compute_null_weight, save_results
+from models.loss import MatchCriterion
 
-def evaluate(global_step, net, testloader, run, savedir):
+def evaluate(global_step, net, testloader, writer, savedir):
     print("TESTING" + "~"*10)
 
     ckpt = Checkpoint(global_step+1, bg_class=([] if net.cfg.eval_bg else testloader.dataset.bg_class))
     net.eval()
     with torch.no_grad():
         for batch_idx, (vnames, seq_list, train_label_list, eval_label_list) in enumerate(testloader):
-
-            seq_list = [ s.cuda() for s in seq_list ]
-            train_label_list = [ s.cuda() for s in train_label_list ]
+            if torch.cuda.is_available():
+                seq_list = [ s.cuda() for s in seq_list ]
+                train_label_list = [ s.cuda() for s in train_label_list ]
             video_saves = net(seq_list, train_label_list)
             save_results(ckpt, vnames, eval_label_list, video_saves)
 
     net.train()
     ckpt.compute_metrics()
 
-    log_dict = {}
+    # 记录测试指标
     string = ""
     for k, v in ckpt.metrics.items():
         string += "%s:%.1f, " % (k, v)
-        log_dict[f'test-metric/{k}'] = v
+        writer.add_scalar(f'test/{k}', v, global_step+1)
     print(string + '\n')
-    run.log(log_dict, step=global_step+1)
 
     fname = "%d.gz" % (global_step+1) 
     ckpt.save(os.path.join(savedir, fname))
@@ -58,10 +56,17 @@ if __name__ == '__main__':
     ### initialize experiment #########################################################
     cfg = setup_cfg(args.cfg_file, args.set_cfgs)
     try:
-        torch.cuda.set_device('cuda:%d'%cfg.aux.gpu)
+        if torch.cuda.is_available():
+            device = torch.device(f'cuda:{cfg.aux.gpu}')
+            torch.cuda.set_device(device)
+        else:
+            device = torch.device('cpu')
+            print("CUDA不可用，使用CPU进行训练")
     except Exception as e:
-        print(e)
-        os.environ['CUDA_VISIBLE_DEVICES'] = str(cfg.aux.gpu)
+        print(f"GPU {cfg.aux.gpu} 不可用，尝试使用GPU 0")
+        device = torch.device('cuda:0')
+        torch.cuda.set_device(device)
+        cfg.aux.gpu = 0
 
     print('============')
     print(cfg)
@@ -74,7 +79,9 @@ if __name__ == '__main__':
         torch.cuda.manual_seed_all(seed)
         torch.backends.cudnn.deterministic = True
 
-    logdir = os.path.join(BASE, cfg.aux.logdir)
+    # 设置日志目录
+    current_time = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+    logdir = os.path.join(BASE, cfg.aux.logdir, current_time)
     ckptdir = os.path.join(logdir, 'ckpts')
     savedir = os.path.join(logdir, 'saves')
     os.makedirs(logdir, exist_ok=True)
@@ -82,15 +89,10 @@ if __name__ == '__main__':
     os.makedirs(savedir, exist_ok=True)
     print('Saving log at', logdir)
 
-    run = wandb.init(
-                project=cfg.aux.wandb_project, entity=cfg.aux.wandb_user,
-                dir=cfg.aux.logdir,
-                group=cfg.aux.exp, resume="allow",
-                config=cfg2flatdict(cfg),
-                reinit=True, save_code=False,
-                mode="offline" if cfg.aux.debug else "online",
-                )
+    # 初始化tensorboard
+    writer = SummaryWriter(log_dir=os.path.join(logdir, 'tensorboard'))
 
+    # 保存配置
     argSaveFile = os.path.join(logdir, 'args.json')
     with open(argSaveFile, 'w') as f:
         json.dump(cfg, f, indent=True)
@@ -107,10 +109,10 @@ if __name__ == '__main__':
 
     ### create network #########################################################
     if cfg.dataset == 'epic':
-        from .models.blocks_SepVerbNoun import FACT
+        from models.blocks_SepVerbNoun import FACT
         net = FACT(cfg, dataset.input_dimension, 98, 301)
     else:
-        from .models.blocks import FACT
+        from models.blocks import FACT
         net = FACT(cfg, dataset.input_dimension, dataset.nclasses)
 
     if cfg.Loss.nullw == -1:
@@ -123,7 +125,8 @@ if __name__ == '__main__':
         if 'frame_pe.pe' in ckpt: del ckpt['frame_pe.pe']
         if 'action_pe.pe' in ckpt: del ckpt['action_pe.pe']
         net.load_state_dict(ckpt, strict=False)
-    net.cuda()
+    if torch.cuda.is_available():
+        net.cuda()
 
     print(net)
 
@@ -141,11 +144,10 @@ if __name__ == '__main__':
 
     print(f'Start Training from Epoch {start_epoch}...')
     for eidx in range(start_epoch, cfg.epoch):
-
         for batch_idx, (vnames, seq_list, train_label_list, eval_label_list) in enumerate(trainloader):
-
-            seq_list = [ s.cuda() for s in seq_list ]
-            train_label_list = [ s.cuda() for s in train_label_list ]
+            if torch.cuda.is_available():
+                seq_list = [ s.cuda() for s in seq_list ]
+                train_label_list = [ s.cuda() for s in train_label_list ]
 
             optimizer.zero_grad()
             loss, video_saves = net(seq_list, train_label_list, compute_loss=True)
@@ -157,33 +159,29 @@ if __name__ == '__main__':
 
             save_results(ckpt, vnames, eval_label_list, video_saves)
 
-            # print some progress information
+            # 打印进度信息并记录到tensorboard
             if (global_step+1) % cfg.aux.print_every == 0:
-
                 ckpt.compute_metrics()
                 ckpt.average_losses()
 
-                log_dict = {}
                 string = "Iter%d, " % (global_step+1)
                 _L = len(string)
                 for k, v in ckpt.loss.items():
-                    log_dict[f"train-loss/{k}"] = v
+                    writer.add_scalar(f'train/loss_{k}', v, global_step+1)
                     string += f"{k}:{v:.1f}, "
                 print(string)
 
                 string = " " * _L 
                 for k, v in ckpt.metrics.items():
                     string += "%s:%.3f, " % (k, v)
-                    log_dict['train-metric/'+k] = v
+                    writer.add_scalar(f'train/metric_{k}', v, global_step+1)
                 print(string)
-
-                run.log(log_dict, step=global_step+1)
 
                 ckpt = Checkpoint(-1, bg_class=(dataset.bg_class if cfg.eval_bg else []), eval_edit=False)
 
-            # test and save model every x iterations
+            # 测试和保存模型
             if global_step != 0 and (global_step+1) % cfg.aux.eval_every == 0:
-                test_ckpt = evaluate(global_step, net, testloader, run, savedir)
+                test_ckpt = evaluate(global_step, net, testloader, writer, savedir)
                 if test_ckpt.metrics['F1@0.50'] >= best_metric:
                     best_ckpt = test_ckpt
                     best_metric = test_ckpt.metrics['F1@0.50']
@@ -202,8 +200,10 @@ if __name__ == '__main__':
     best_ckpt.eval_edit = True
     best_ckpt.compute_metrics()
     best_ckpt.save(os.path.join(logdir, 'best_ckpt.gz'))
-    run.finish()
+    
+    # 关闭tensorboard writer
+    writer.close()
 
-    # create a file to mark this experiment has completed
+    # 创建完成标记文件
     finish_proof_fname = os.path.join(logdir, "FINISH_PROOF")
     open(finish_proof_fname, "w").close()
